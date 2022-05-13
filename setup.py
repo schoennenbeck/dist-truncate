@@ -26,6 +26,7 @@ setup(
             "pytest-cov",
             "coveralls",
             "coverage",
+            "flake8",
         ],
     },
 )

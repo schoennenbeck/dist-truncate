@@ -13,3 +13,9 @@ repos:
         entry: black -q .
         language: python
         types: [python]
+      - id: flake8
+        name: Check linting
+        description: Lint the code using flake9
+        entry: flake8
+        language: python
+        types: [python]
