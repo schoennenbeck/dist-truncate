@@ -30,6 +30,7 @@ def truncated(dist: rv_continuous) -> rv_continuous:
             return res
 
         def _sf(self, x: DistArg, *args) -> DistArg:
+            # The survivial function works analogously to the cdf
             *args, trunc_min, trunc_max = args
             scale = 1 / (dist.cdf(trunc_max, *args) - dist.cdf(trunc_min, *args))
             sf_max = dist.sf(trunc_max, *args)
