@@ -78,6 +78,11 @@ stats.loguniform.truncated.support(1, 100, trunc_max=80, trunc_min=20)
 
 Broadcasting of shapes works the same as for all other arguments:
 ```
-stats.loguniform.truncated.support([1, 50], [50, 100], trunc_min=20, trunc_max=[[30, 40], [60, 100]])
+stats.loguniform.truncated.support(
+    [1, 50],
+    [50, 100],
+    trunc_min=20,
+    trunc_max=[[30, 40], [60, 100]]
+)
 # Output: (array([[20, 50], [20, 50]]), array([[ 30,  40], [ 50, 100]]))
 ```

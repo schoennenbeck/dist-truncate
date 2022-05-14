@@ -39,3 +39,7 @@ def test_sampling():
         1, 100, trunc_min=5, trunc_max=80, size=(1000)
     )
     assert all(5 <= x <= 80 for x in samples)
+
+
+def test_repr():
+    assert str(stats.loguniform.truncated).startswith("Truncated")
