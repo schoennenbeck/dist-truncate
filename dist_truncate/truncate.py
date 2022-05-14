@@ -9,6 +9,8 @@ DistArg = Union[np.float64, np.ndarray, float, int]
 def truncated(dist: rv_continuous) -> rv_continuous:
     class _Truncated(rv_continuous):
         def _pdf(self, x: DistArg, *args) -> DistArg:
+            # The density function is the original density function restricted to the
+            # allowed interval and rescaled such that the integral is 1 again.
             *args, trunc_min, trunc_max = args
             args = map(np.asarray, args)
             scale = 1 / (dist.cdf(trunc_max, *args) - dist.cdf(trunc_min, *args))
