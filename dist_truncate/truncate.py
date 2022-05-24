@@ -53,7 +53,9 @@ def truncated(dist: rv_continuous) -> rv_continuous:
 
         def _argcheck(self, *args) -> Union[bool, np.ndarray]:
             *args, trunc_min, trunc_max = args
-            return dist._argcheck(*args) & (trunc_max > trunc_min)
+            return dist._argcheck(*args) & (
+                dist.cdf(trunc_max, *args) > dist.cdf(trunc_min, *args)
+            )
 
         def __repr__(self) -> str:
             return f"Truncated {dist.name} distribution"

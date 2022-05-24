@@ -36,7 +36,7 @@ def test_against_truncated_normal():
 
 def test_sampling():
     samples = stats.loguniform.truncated.rvs(
-        1, 100, trunc_min=5, trunc_max=80, size=(1000)
+        1, 100, trunc_min=5, trunc_max=80, size=1000
     )
     assert all(5 <= x <= 80 for x in samples)
 
