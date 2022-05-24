@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as f:
 
 setup(
     name="dist-truncate",
-    version="0.1.0",
+    version="0.2.0",
     author="Sebastian Schönnenbeck",
     author_email="schoennenbeck@gmail.com",
     url="https://github.com/schoennenbeck/dist-truncate",
