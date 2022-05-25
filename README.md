@@ -123,8 +123,13 @@ From a sampling perspective we get the truncated distribution $X_{|[a,b]}$ by sa
 $X$ until the sample lies in $[a,b]$. Equivalently, we can define $X_{|[a,b]}$ as having the
 same density function as $X$ but restricted to the interval $[a,b]$ and then rescaled such
 that all of $\mathbb{R}$ has probability $1$ again, i.e.
-$$ f_{X_{|[a,b]}}(x) = f_X(x) \cdot \mathbb{1}_{[a,b]}(x) \cdot \frac{1}{(F_X(b)-F_X(a))} $$
-where $$ \mathbb{1}_{[a,b]}(x) = \begin{cases} 1, & x \in [a,b] \\ 0, & \text{else} \end{cases} $$
+
+$ f_{X_{|[a,b]}}(x) = f_X(x) \cdot \mathbb{1}_{[a,b]}(x) \cdot \frac{1}{(F_X(b)-F_X(a))} $
+
+where
+
+ $ \mathbb{1}_{[a,b]}(x) = \begin{cases} 1, & x \in [a,b] \\ 0, & \text{else} \end{cases} $
+
 Note that all of this only works if $F_X(b)>F_X(a)$ so that the interval $[a,b]$ has
 positive probability (this is checked in the `_argcheck` method in the implementation).
 
@@ -133,4 +138,5 @@ would already be enough to make this work in scipy (see [documentation](https://
 cummulative density function, its inverse, the survival function and so on and implementing
 them as `_cdf`, `_ppf`, `_sf` etc for the new distribution makes the implementation much
 faster and more numerically stable. For instance the cummulative density function is
-$$ F_{X_{|[a,b]}}(x) = \begin{cases} 0, & x< a \\ \frac{F_X(x)-F_X(a)}{F_X(b)-F_X(a)}, & x \in [a,b] \\ 1, & x>b\end{cases} $$
+
+$ F_{X_{|[a,b]}}(x) = \begin{cases} 0, & x< a \\ \frac{F_X(x)-F_X(a)}{F_X(b)-F_X(a)}, & x \in [a,b] \\ 1, & x>b\end{cases} $
